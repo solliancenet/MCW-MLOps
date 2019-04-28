@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>Operationalizing Deep Learning</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="operationalizing-deep-learning">Operationalizing Deep Learning</h1>
+<p>Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. Trey Research has decades specialties in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.</p>
+<p>As their first effort of this combined initiative, they would to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept, they would like to focus on component compliance. Specifically they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components (which all of their manufacturing customers deal with). The component descriptions (which are free form text) are entered and managed via a web application. This web application take new component descriptions entered by authorized technicians and labels the component as compliant or non-compliant based on the text.</p>
+<p>They want to ensure the overall process they create enables them to update both the underlying model and the web app in one, unified pipeline. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues.</p>
+<h2 id="target-audience">Target audience</h2>
+<ul>
+<li>Data Scientists</li>
+<li>App Developers</li>
+<li>AI Engineers</li>
+<li>DevOps Engineers</li>
+</ul>
+<h2 id="abstract">Abstract</h2>
+<h3 id="workshop">Workshop</h3>
+<p>In this workshop, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations, and manage the classification thru their web application. The entire process from model creation, application packaging, model deployment and application deployment needs to occur as one unified repeatable, pipeline.</p>
+<p>At the end of this workshop, you will be better able to design and implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.</p>
+<h4 id="outline-architecture-overview">Outline: Architecture Overview</h4>
+<p><img src="file:///c:\Users\ZoinerTejada\Solliance Dropbox\Projects\Clients\Microsoft\MCW\Operationalizing deep learning\Media\overview-architecture.png" alt="Overview Architecture"></p>
+<p>Each document in the supplied training data set is a short text description of the component as documented by an authorized technician. The contents include:</p>
+<ul>
+<li>Manufacture year of the component (e.g. 1985, 2010)</li>
+<li>Condition of the component (poor, fair, good, new)</li>
+<li>Materials used in the component (plastic, carbon fiber, steel, iron)</li>
+<li>The compliance regulations dictate: Any component manufactured before 1995 or in fair or poor condition or made with plastic or iron is out of compliance.</li>
+</ul>
+<p>For example:</p>
+<ul>
+<li>Manufactured in 1985 made of steel in fair condition -&gt; Non-compliant</li>
+<li>Good condition carbon fiber component manufactured in 2010 -&gt; Compliant</li>
+<li>Steel component manufactured in 1995 in fair condition -&gt; Non-Compliant</li>
+<li>The labels present in this data are 0 for compliant, 1 for non-compliant.</li>
+</ul>
+<p>The challenge with classifying text data is that deep learning models only undertand vectors (e.g., arrays of numbers) and not text. To encode the car component descriptions as vectors, we use an algorithm from Stanford called GloVe (Global Vectors for Word Representation). GloVe provides us pre-trained vectors (word embeddings) that we can use to convert a string of text into a vector.</p>
+<h3 id="whiteboard-design-session-this-will-go-in-the-readme-and-in-the-wds-document">Whiteboard design session <em>(this will go in the readme and in the WDS document)</em></h3>
+<p>In this whiteboard design session, you will work in a group to design the process Trey Research can follow for orchestrating and deploying updates to the application and the deep learning model in a unified way. You will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments and most importantly improves inferencing speed over the native model. You will design a DevOps pipeline the coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. You will also learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues.</p>
+<p>At the end of this whiteboard design session, you will be better able to design end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.</p>
+<h4 id="outline-key-concerns-for-cutomer-situation">Outline: Key Concerns for Cutomer situation</h4>
+<ul>
+<li>End to end deployment of deep learning model &amp; best practices</li>
+<li>Model lifecycle management</li>
+<li>Frictionless model delivery between Data Scientists and App Developers (ML Ops + DevOps)</li>
+<li>What are the benefits of ONNX besides model portability? Are there performance benefits?</li>
+<li>How to monitor the model performance once it is deployed</li>
+<li>Want to use PyTorch for deep learning</li>
+</ul>
+<h3 id="hands-on-lab-this-will-go-in-the-readme-and-in-the-hol-document">Hands-on lab <em>(this will go in the readme and in the HOL document)</em></h3>
+<p>In this hands-on lab, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments and most importantly improves inferencing speed over the native model. You will build a DevOps pipeline the coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. After a first successful deployment, you will make updates to both the model and the and web application and execute the pipeline once for to achieve an updated deployment. You will also learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues.</p>
+<p>At the end of this hands-on lab, you will be better able to you will be better able to implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.</p>
+<h4 id="outline-hands-on-lab-exercises">Outline: Hands-on lab exercises</h4>
+<ul>
+<li>Exercise 0: Before the hands-on lab</li>
+<li>Exercise 1: Creating and evaluating compliance classification models</li>
+<li>Exercise 2: Registering the model</li>
+<li>Exercise 3: Creating and executing the Azure DevOps deployment pipeline</li>
+<li>Exercise 4: Testing the deployed solution</li>
+<li>Exercise 5: Updating the deployed solution</li>
+<li>Exercise 6: Examining deployed model performance</li>
+</ul>
+<h2 id="azure-services-and-related-products">Azure services and related products</h2>
+<ul>
+<li>Azure Container Instances</li>
+<li>Azure DevOps</li>
+<li>Azure Kubernetes Service</li>
+<li>Azure Machine Learning Service</li>
+<li>Azure Notebooks</li>
+<li>Azure Virtual Machines (Data Science/Deep Learning VMs with GPU)</li>
+<li>ML Ops</li>
+<li>ONNX</li>
+<li>PyTorch</li>
+</ul>
+<h2 id="related-references">Related references</h2>
+<p><em>This should be a list of and links to prereqs, architectural diagrams, supporting docs, or briefing decks related to the material.</em></p>
+<ul>
+<li><a href="https://github.com/Microsoft/MCW">MCW</a></li>
+</ul>
+
+    </body>
+    </html>
