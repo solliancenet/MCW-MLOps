@@ -101,7 +101,7 @@ To author: remove this section if you do not require environment setup instructi
 
 ## Exercise 1: Creating and evaluating compliance classification models
 
-Duration: 45 minutes
+Duration: 60 minutes
 
 In this exercise, you create a model for classifying component text as compliant or non-compliant.
 
@@ -126,6 +126,10 @@ In this exercise, you explore the approaches you can take to managing the model 
         i.  
 
 ## Exercise 3: Setup New Project in Azure DevOps
+
+Duration: X minutes
+
+TBD
 
 ### Task 1: Create New Project
 
@@ -186,6 +190,9 @@ In this exercise, you explore the approaches you can take to managing the model 
 
 ## Exercise 4: Setup and Run the Build Pipeline
 
+Duration: X minutes
+
+TBD
 ### Task 1: Setup Build Pipeline
 
 1. From left navigation select **Pipelines, Builds** and then select **New pipeline**
@@ -240,6 +247,10 @@ In this exercise, you explore the approaches you can take to managing the model 
     
     
 ## Exercise 5: Setup the Release Pipeline
+
+Duration: X minutes
+
+TBD
 
 ### Task 1: Create an Empty Job
 
@@ -384,6 +395,10 @@ In this exercise, you explore the approaches you can take to managing the model 
     
 ## Exercise 6: Test Build and Release Pipelines
 
+Duration: X minutes
+
+TBD
+
 ### Task 1: Make Edits to Source Code
 
 1. Navigate to: **Repos -> Files -> aml_service -> pipelines_master.py**
@@ -432,9 +447,9 @@ In this exercise, you explore the approaches you can take to managing the model 
 
 ## Exercise 7: Testing the deployed solution
 
-Duration: X minutes
+Duration: 15 minutes
 
-\[insert your custom Hands-on lab content here . . .\]
+In this exercise, you verify that the first release of the application works.
 
 ### Task 1: Task name
 
@@ -447,9 +462,9 @@ Duration: X minutes
 
 ## Exercise 8: Updating the deployed solution
 
-Duration: X minutes
+Duration: 15 minutes
 
-\[insert your custom Hands-on lab content here . . .\]
+In this exercise you make a change to the model training code which results in a new release of the web service in production. 
 
 ### Task 1: Task name
 
@@ -461,9 +476,9 @@ Duration: X minutes
 
 ## Exercise 9: Examining deployed model performance
 
-Duration: X minutes
+Duration: 15 minutes
 
-\[insert your custom Hands-on lab content here . . .\]
+In this exercise you learn how to monitor the performance of a deployed model.
 
 ### Task 1: Task name
 
