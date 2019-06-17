@@ -1,15 +1,15 @@
 ![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
-[Insert workshop name here]
+MLOps
 </div>
 
 <div class="MCWHeader2">
-Hands-on lab step-by-step
+Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-[Insert date here Month Year]
+June 2019
 </div>
 
 
@@ -23,44 +23,19 @@ The names of manufacturers, products, or URLs are provided for informational pur
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
-**Contents** 
+**Contents**
 
 <!-- TOC -->
 
-- [\[insert workshop name here\] hands-on lab step-by-step](#\insert-workshop-name-here\-hands-on-lab-step-by-step)
-    - [Abstract and learning objectives](#abstract-and-learning-objectives)
-    - [Overview](#overview)
-    - [Solution architecture](#solution-architecture)
-    - [Requirements](#requirements)
-    - [Before the hands-on lab](#before-the-hands-on-lab)
-    - [Exercise 1: Exercise name](#exercise-1-exercise-name)
-        - [Task 1: Task name](#task-1-task-name)
-        - [Task 2: Task name](#task-2-task-name)
-    - [Exercise 2: Exercise name](#exercise-2-exercise-name)
-        - [Task 1: Task name](#task-1-task-name-1)
-        - [Task 2: Task name](#task-2-task-name-1)
-    - [Exercise 3: Exercise name](#exercise-3-exercise-name)
-        - [Task 1: Task name](#task-1-task-name-2)
-        - [Task 2: Task name](#task-2-task-name-2)
-    - [After the hands-on lab](#after-the-hands-on-lab)
-        - [Task 1: Task name](#task-1-task-name-3)
-        - [Task 2: Task name](#task-2-task-name-3)
+- [\[insert workshop name here\] before the hands-on lab setup guide](#insert-workshop-name-here-before-the-hands-on-lab-setup-guide)
+  - [Requirements](#Requirements)
+  - [Before the hands-on lab](#Before-the-hands-on-lab)
+    - [Task 1: Task name](#Task-1-Task-name)
+    - [Task 2: Task name](#Task-2-Task-name)
 
 <!-- /TOC -->
 
-# \[insert workshop name here\] hands-on lab step-by-step 
-
-## Abstract and learning objectives 
-
-\[Insert what is trying to be solved for by using this workshop. . . \]
-
-## Overview
-
-\[insert your custom workshop content here . . . \]
-
-## Solution architecture
-
-\[Insert your end-solution architecture here. . .\]
+# \[insert workshop name here\] before the hands-on lab setup guide 
 
 ## Requirements
 
@@ -68,15 +43,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Before the hands-on lab
 
-Refer to the Before the hands-on lab setup guide manual before continuing to the lab exercises.
-
-To author: remove this section if you do not require environment setup instructions.
-
-## Exercise 1: Exercise name
-
 Duration: X minutes
 
-\[insert your custom Hands-on lab content here . . . \]
+\[insert your custom workshop content here . . . 
 
 ### Task 1: Task name
 
@@ -94,72 +63,5 @@ Duration: X minutes
 
         i.  
 
-
-## Exercise 2: Exercise name
-
-Duration: X minutes
-
-\[insert your custom Hands-on lab content here . . . \]
-
-### Task 1: Task name
-
-1.  Number and insert your custom workshop content here . . . 
-
-    a.  Insert content here
-
-        i.  
-
-### Task 2: Task name
-
-1.  Number and insert your custom workshop content here . . . 
-
-    a.  Insert content here
-
-        i.  
-
-
-## Exercise 3: Exercise name
-
-Duration: X minutes
-
-\[insert your custom Hands-on lab content here . . .\]
-
-### Task 1: Task name
-
-1.  Number and insert your custom workshop content here . . .
-
-    a.  Insert content here
-
-        i.  
-
-### Task 2: Task name
-
-1.  Number and insert your custom workshop content here . . .
-
-    a.  Insert content here
-
-        i.  
-
-## After the hands-on lab 
-
-Duration: X minutes
-
-\[insert your custom Hands-on lab content here . . .\]
-
-### Task 1: Task name
-
-1.  Number and insert your custom workshop content here . . .
-
-    a.  Insert content here
-
-        i.  
-
-### Task 2: Task name
-
-1.  Number and insert your custom workshop content here . . .
-
-    a.  Insert content here
-
-        i.  
-You should follow all steps provided *after* attending the Hands-on lab.
+You should follow all steps provided *before* performing the Hands-on lab.
 

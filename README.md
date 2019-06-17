@@ -37,14 +37,14 @@ For example:
 - Steel component manufactured in 1995 in fair condition -> Non-Compliant
 - The labels present in this data are 0 for compliant, 1 for non-compliant.
 
-The challenge with classifying text data is that deep learning models only undertand vectors (e.g., arrays of numbers) and not text. To encode the car component descriptions as vectors, we use an algorithm from Stanford called GloVe (Global Vectors for Word Representation). GloVe provides us pre-trained vectors (word embeddings) that we can use to convert a string of text into a vector.
+The challenge with classifying text data is that deep learning models only understand vectors (e.g., arrays of numbers) and not text. To encode the car component descriptions as vectors, we use an algorithm from Stanford called GloVe (Global Vectors for Word Representation). GloVe provides us pre-trained vectors (word embeddings) that we can use to convert a string of text into a vector.
 
 ### Whiteboard design session *(this will go in the readme and in the WDS document)*
 In this whiteboard design session, you will work in a group to design the process Trey Research can follow for orchestrating and deploying updates to the application and the deep learning model in a unified way. You will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments and most importantly improves inferencing speed over the native model. You will design a DevOps pipeline the coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. You will also learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues.
 
 At the end of this whiteboard design session, you will be better able to design end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
 
-#### Outline: Key Concerns for Cutomer situation ####
+#### Outline: Key Concerns for Customer situation ####
 - End to end deployment of deep learning model & best practices
 - Model lifecycle management
 - Frictionless model delivery between Data Scientists and App Developers (ML Ops + DevOps)
