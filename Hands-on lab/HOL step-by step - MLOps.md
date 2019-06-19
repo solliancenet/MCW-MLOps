@@ -423,22 +423,22 @@ TBD
 
 ### Task 1: Make Edits to Source Code
 
-1. Navigate to: **Repos -> Files -> aml_service -> pipelines_master.py**
-2. **Edit** `pipelines_master.py`
-3. Make a minor edit. For example, change `print("In piplines_master.py")` to `print("In piplines_master")`
+1. Navigate to: **Repos -> Files -> scripts -> train.py**
+2. **Edit** `train.py`
+3. Change the **learning rate (lr)** for the optimizer from **0.1** to **0.01**
 4. Select **Commit**
 
-    ![Minor edit to piplines_master.py](media/44.png)
+    ![Edit to train.py](media/44_1.png)
     
-5. Provide comment: `Small edit to pipelines_master.py` and select **Commit**
+5. Provide comment: `Improving model performance: changed learning rate.` and select **Commit**
 
-    ![Minor edit to piplines_master.py](media/45.png)
+    ![Edit comment for train.py](media/45_1.png)
     
 ### Task 2: Monitor Build Pipeline
 
 1. Navigate to **Pipelines, Builds**. Observe that the CI build is triggered because of the source code change. 
 
-   ![CI Build Pipeline](media/46.png)
+   ![CI Build Pipeline](media/46_1.png)
    
 2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 10-12 minutes. Proceed to the next task when the build pipeline successfully completes.
     
