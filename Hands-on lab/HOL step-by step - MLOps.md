@@ -480,13 +480,30 @@ Duration: 15 minutes
 
 In this exercise you learn how to monitor the performance of a deployed model.
 
-### Task 1: Task name
+### Task 1: Activate App Insights and data collection on the deployed model
 
-1.  Number and insert your custom workshop content here . . .
+1. Browse to your Azure Notebooks project and navigate to the [Model Telemetry](notebooks/Model%20Telemetry.ipynb) notebook. This is the notebook you will step thru executing in this task.
+2. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
 
-    a.  Insert content here
+### Task 2: Check Application Insights telemetry
 
-        i.  
+1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+2. Locate the Application Insights instance in the resource group and click on it.
+3. Go to **Overview**
+4. From the top row of the right section select **Logs (Analytics)**. This will open the Application Insights query editor with an empty new query.
+5. In the left pane, make sure the **Schema** tab is selected. 
+6. Hover over **requests** and click the icon on the right side - "Show sample records from this table". 
+7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute, call again your model, and click **Run** to re-execute the Application Insights query.
+
+### Task 3: Check the data collected
+
+1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+2. Locate the Storage Account instance in the resource group and click on it.
+3. Go to **Storage Explorer (preview)**.
+4. Expand the **BLOB CONTAINERS** section.
+5. Identify the CSV files containing the collected data. The path to the output blobs is based on the following structure:
+
+'/modeldata/\<subscriptionid>/\<resourcegroup>/\<workspace>/\<webservice>/\<model>/\<version>/\<identifier>/\<year>/\<month>/\<day>/data.csv'
 
 
 ## After the hands-on lab 
