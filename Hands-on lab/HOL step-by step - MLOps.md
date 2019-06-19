@@ -152,7 +152,7 @@ TBD
    
       ![Import Quickstart code from a Github Repo](media/03.png)
    
-2. Provide the following Github URL: `https://github.com/solliancenet/mlops-starter.git` and select **Import**. This should import the code required for the quickstart.
+2. Provide the following Github URL: `https://github.com/solliancenet/mcw-mlops-starter` and select **Import**. This should import the code required for the quickstart.
 
     ![Provide the Github URL](media/04.png)
 
@@ -217,7 +217,7 @@ TBD
 
     ![Start your build pipeline](media/14.png)
 
-2. Monitor the build run. The build pipeline will take around *10-12 minutes* to run.
+2. Monitor the build run. The build pipeline, for the first run, will take around 15-20 minutes to run.
 
     ![Monitor your build pipeline](media/15.png)
 
@@ -231,17 +231,17 @@ TBD
 
     ![Download output from the model evaluation step](media/17.png)
 
-3. Open the `eval_info.json` in a json viewer or a text editor and observe the information. The json output contains information such as if the model passed the evaluation step (`deploy_model`: *true or false*), and the name of the created image (`image_name`) to deploy.
+3. Open the `eval_info.json` in a json viewer or a text editor and observe the information. The json output contains information such as if the model passed the evaluation step (`deploy_model`: *true or false*), and the name and id of the created image (`image_name` and `image_id`) to deploy.
 
     ![Review information the eval_info json file](media/18.png)
 
 ### Task 4: Review Build Outputs
 
-1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the registered model: `cost-estimator`.
+1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the registered model: `compliance-classifier`.
 
     ![Review registered model in Azure Portal](media/53.png)
 
-2. Open your **Resource Group, Workspace, Images** section and observe the deployment image created during the build pipeline: `cost-estimator-image`.
+2. Open your **Resource Group, Workspace, Images** section and observe the deployment image created during the build pipeline: `compliance-classifier-image`.
 
     ![Review deployment image in Azure Portal](media/54.png)
     
@@ -288,11 +288,11 @@ TBD
 
 3. Add three Pipeline variables as name - value pairs and then select **Save**:
 
-    a. Name: `aci_name` Value: `aci-cluster01`
+    a. Name: `aks_name` Value: `aks-cluster01`
     
-    b. Name: `description` Value: `"Cost Estimator Web Service"` *note the double quotes around description value*
+    b. Name: `description` Value: `"Compliance Classifier Web Service"` *note the double quotes around description value*
     
-    c. Name: `service_name` Value: `cost-estimator-service`
+    c. Name: `service_name` Value: `compliance-classifier-service`
     
       ![Add Pipeline variables](media/26.png)
       
@@ -356,7 +356,7 @@ TBD
     
     c. Script Location: `Inline script`
     
-    d. Inline Script: `python aml_service/deploy.py --service_name $(service_name) --aci_name $(aci_name) --description $(description)`
+    d. Inline Script: `python aml_service/deploy.py --service_name $(service_name) --aks_name $(aks_name) --description $(description)`
     
       ![Setup Azure CLI task](media/38.png)
 
@@ -428,7 +428,7 @@ TBD
     
    ![Release pipeline](media/48.png)
    
-2. The release pipeline will run for 5-6 minutes. Proceed to the next task when the release pipeline successfully completes.
+2. The release pipeline will run for about 15 minutes. Proceed to the next task when the release pipeline successfully completes.
 
 ### Task 4: Review Release Pipeline Outputs
 
@@ -436,11 +436,11 @@ TBD
 
     ![Release pipeline logs](media/50.png)
     
-2. Observe the **Scoring URI** and test results for the deployed webservice.
+2. Observe the **Scoring URI** and **API Key** for the deployed webservice. Please note down both the `Scoring URI` and `API Key` for *Exercise 7*.
 
     ![Scoring URI of the deployed webservice](media/51.png)
 
-3. Log in to Azure Portal. Open your **Resource Group, Workspace, Deployments** section, and observe the deployed webservice: **cost-estimator-service**.
+3. Log in to Azure Portal. Open your **Resource Group, Workspace, Deployments** section, and observe the deployed webservice: **compliance-classifier-service**.
 
     ![Deployed webservice in Azure Portal](media/52.png)
 
