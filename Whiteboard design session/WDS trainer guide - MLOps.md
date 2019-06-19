@@ -221,7 +221,7 @@ Finally, Trey would like to ensure that the process they establish is not litter
 
 ### Infographic for common scenarios
 
-![AN example machine learning pipeline going from prepare data, to build and train models, to deploy and predict](images/example-pipeline.png)
+![An example machine learning pipeline going from prepare data, to build and train models, to deploy and predict](images/example-pipeline.png)
 
 ## Step 2: Design a proof of concept solution
 
@@ -397,7 +397,7 @@ The primary audience is the business decision makers and technology decision mak
 
 The high level architecture of the solution is illustrated in the following diagram.
 
-![Compliance and battery alerting AI solution diagram as described in the text that follows](images/preferred-solution-overview.png)
+![Compliance and battery alerting AI solution diagram as described in the text that follows.](images/preferred-solution-overview.png)
 
 The overall approach is to orchestrate continuous integration and continuous delivery Azure Pipelines from Azure DevOps. These pipelines are triggered by changes to artifacts that describe a machine learning pipeline, that is created with the Azure Machine Learning SDK. For example, checking in a change to the model training script executes the Azure Pipelines Build Pipeline, which trains the model and creates the container image. Then this triggers an Azure Pipelines Release pipeline that deploys the model as a web service, by using the Docker image that was created in the Build pipeline. Once in production, the scoring web service is monitored using a combination of Application Insights and Azure Storage.
 
