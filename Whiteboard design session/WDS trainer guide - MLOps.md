@@ -284,6 +284,8 @@ Directions: With all participants at your table, respond to the following questi
 
 1.  How would you recommend Trey collect diagnostics of the scoring web service in production?
 
+2.  How can Trey collect the data input to the scoring web service and the outputs that result, such that they could monitor how the model is performing in production?
+
 
 **Prepare**
 
@@ -397,7 +399,7 @@ The high level architecture of the solution is illustrated in the following diag
 
 ![Compliance and battery alerting AI solution diagram as described in the text that follows](images/preferred-solution-overview.png)
 
-TBD
+The overall approach is to orchestrate continuous integration and continuous delivery Azure Pipelines from Azure DevOps. These pipelines are triggered by changes to artifacts that describe a machine learning pipeline, that is created with the Azure Machine Learning SDK. For example, checking in a change to the model training script executes the Azure Pipelines Build Pipeline, which trains the model and creates the container image. Then this triggers an Azure Pipelines Release pipeline that deploys the model as a web service, by using the Docker image that was created in the Build pipeline. Once in production, the scoring web service is monitored using a combination of Application Insights and Azure Storage.
 
 
 *Component Classification*
