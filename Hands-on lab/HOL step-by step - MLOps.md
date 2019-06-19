@@ -66,7 +66,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 7: Testing the deployed solution](#Exercise-7-Testing-the-deployed-solution)
     - [Task 1: Test the Deployment](#Task-1-Test-the-deployment)
   - [Exercise 8: Examining deployed model performance](#Exercise-8-Examining-deployed-model-performance)
-    - [Task 1: Activate App Insights and data collection on the deployed model](#Task-1-Activate-App-Insights-and-Data-Collection)
+    - [Task 1: Activate App Insights and data collection on the deployed model](#Task-1-Activate-App-Insights-and-Data-Collection-on-the-deployed-model)
     - [Task 2: Check Application Insights telemetry](#Task-2-Check-Application-Insights-Telemetry)
     - [Task 3: Check the data collected](#Task-3-Check-the-data-collected)
   - [After the hands-on lab](#After-the-hands-on-lab)
