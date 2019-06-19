@@ -64,11 +64,11 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 3: Monitor Release Pipeline](#Task-3-Monitor-Release-Pipeline)
     - [Task 4: Review Release Pipeline Outputs](#Task-4-Review-Release-Pipeline-Outputs)
   - [Exercise 7: Testing the deployed solution](#Exercise-7-Testing-the-deployed-solution)
-    - [Task 1: Task name](#Task-1-Task-name)
-  - [Exercise 8: Updating the deployed solution](#Exercise-8-Updating-the-deployed-solution)
-    - [Task 1: Task name](#Task-1-Task-name-1)
-  - [Exercise 9: Examining deployed model performance](#Exercise-9-Examining-deployed-model-performance)
-    - [Task 1: Task name](#Task-1-Task-name-2)
+    - [Task 1: Test the Deployment](#Task-1-Test-the-deployment)
+  - [Exercise 8: Examining deployed model performance](#Exercise-8-Examining-deployed-model-performance)
+    - [Task 1: Activate App Insights and data collection on the deployed model](#Task-1-Activate-App-Insights-and-Data-Collection-on-the-deployed-model)
+    - [Task 2: Check Application Insights telemetry](#Task-2-Check-Application-Insights-Telemetry)
+    - [Task 3: Check the data collected](#Task-3-Check-the-data-collected)
   - [After the hands-on lab](#After-the-hands-on-lab)
     - [Task 1: Clean up lab resources](#Task-1-Clean-up-lab-resources)
 
@@ -109,6 +109,7 @@ In this exercise, you create a model for classifying component text as compliant
 
 1. Browse to your Azure Notebooks project and navigate to `Deep Learning with Text.ipynb`. This is the notebook you will step thru executing in this lab.
 2. Follow the instructions within the notebook to complete the lab.
+3. In Azure Notebooks navigate to the `models` folder and download the **model.h5** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.h5`, then rename the file back to `model.h5`*
 
 
 ## Exercise 2: Registering the model
@@ -117,13 +118,34 @@ Duration: 15 minutes
 
 In this exercise, you explore the approaches you can take to managing the model versions, their association with Experiment Runs, and how you can retrieve the models both programmatically and via the Azure Portal.
 
-### Task 1: TBD
+### Task 1: Register Model using Azure Machine Learning Python SDK
 
-1.  Number and insert your custom workshop content here . . . 
+1. Browse to your Azure Notebooks project and navigate to `Register Model.ipynb`. This is the notebook you will step thru executing in this lab.
+2. Follow the instructions within the notebook to complete the lab.
+3. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
 
-    a.  Insert content here
+    ![Review registered model in Azure Portal](media/60.png)
+    
+### Task 2: Register Model from Azure Portal
 
-        i.  
+1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section and select **Add Model**
+
+  ![Add Model in Azure Portal](media/61.png)
+  
+2. Provide the following input to the `Register a Model page`, and then select **Create**
+
+   a. Name: `compliance-classifier`
+   
+   b. Description: `Deep learning model to classify the descriptions of car components as compliant or non-compliant.`
+   
+   c. Select the `model.h5` file from your local disk.
+
+   ![Register a Model in Azure Portal](media/62.png)
+   
+3. Navigate to your **Resource Group, Workspace, Models** section, and observe the **version 2** of the registered model: `compliance-classifier`.
+
+  ![Registered version 2 Model in Azure Portal](media/63.png)
+
 
 ## Exercise 3: Setup New Project in Azure DevOps
 
@@ -152,7 +174,7 @@ TBD
    
       ![Import Quickstart code from a Github Repo](media/03.png)
    
-2. Provide the following Github URL: `https://github.com/solliancenet/mlops-starter.git` and select **Import**. This should import the code required for the quickstart.
+2. Provide the following Github URL: `https://github.com/solliancenet/mcw-mlops-starter` and select **Import**. This should import the code required for the quickstart.
 
     ![Provide the Github URL](media/04.png)
 
@@ -217,7 +239,7 @@ TBD
 
     ![Start your build pipeline](media/14.png)
 
-2. Monitor the build run. The build pipeline will take around *10-12 minutes* to run.
+2. Monitor the build run. The build pipeline, for the first run, will take around 15-20 minutes to run.
 
     ![Monitor your build pipeline](media/15.png)
 
@@ -231,17 +253,17 @@ TBD
 
     ![Download output from the model evaluation step](media/17.png)
 
-3. Open the `eval_info.json` in a json viewer or a text editor and observe the information. The json output contains information such as if the model passed the evaluation step (`deploy_model`: *true or false*), and the name of the created image (`image_name`) to deploy.
+3. Open the `eval_info.json` in a json viewer or a text editor and observe the information. The json output contains information such as if the model passed the evaluation step (`deploy_model`: *true or false*), and the name and id of the created image (`image_name` and `image_id`) to deploy.
 
     ![Review information the eval_info json file](media/18.png)
 
 ### Task 4: Review Build Outputs
 
-1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the registered model: `cost-estimator`.
+1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the registered model: `compliance-classifier`.
 
     ![Review registered model in Azure Portal](media/53.png)
 
-2. Open your **Resource Group, Workspace, Images** section and observe the deployment image created during the build pipeline: `cost-estimator-image`.
+2. Open your **Resource Group, Workspace, Images** section and observe the deployment image created during the build pipeline: `compliance-classifier-image`.
 
     ![Review deployment image in Azure Portal](media/54.png)
     
@@ -288,11 +310,11 @@ TBD
 
 3. Add three Pipeline variables as name - value pairs and then select **Save**:
 
-    a. Name: `aci_name` Value: `aci-cluster01`
+    a. Name: `aks_name` Value: `aks-cluster01`
     
-    b. Name: `description` Value: `"Cost Estimator Web Service"` *note the double quotes around description value*
+    b. Name: `description` Value: `"Compliance Classifier Web Service"` *note the double quotes around description value*
     
-    c. Name: `service_name` Value: `cost-estimator-service`
+    c. Name: `service_name` Value: `compliance-classifier-service`
     
       ![Add Pipeline variables](media/26.png)
       
@@ -356,7 +378,7 @@ TBD
     
     c. Script Location: `Inline script`
     
-    d. Inline Script: `python aml_service/deploy.py --service_name $(service_name) --aci_name $(aci_name) --description $(description)`
+    d. Inline Script: `python aml_service/deploy.py --service_name $(service_name) --aks_name $(aks_name) --description $(description)`
     
       ![Setup Azure CLI task](media/38.png)
 
@@ -401,22 +423,22 @@ TBD
 
 ### Task 1: Make Edits to Source Code
 
-1. Navigate to: **Repos -> Files -> aml_service -> pipelines_master.py**
-2. **Edit** `pipelines_master.py`
-3. Make a minor edit. For example, change `print("In piplines_master.py")` to `print("In piplines_master")`
+1. Navigate to: **Repos -> Files -> scripts -> train.py**
+2. **Edit** `train.py`
+3. Change the **learning rate (lr)** for the optimizer from **0.1** to **0.01**
 4. Select **Commit**
 
-    ![Minor edit to piplines_master.py](media/44.png)
+    ![Edit to train.py](media/44_1.png)
     
-5. Provide comment: `Small edit to pipelines_master.py` and select **Commit**
+5. Provide comment: `Improving model performance: changed learning rate.` and select **Commit**
 
-    ![Minor edit to piplines_master.py](media/45.png)
+    ![Edit comment for train.py](media/45_1.png)
     
 ### Task 2: Monitor Build Pipeline
 
 1. Navigate to **Pipelines, Builds**. Observe that the CI build is triggered because of the source code change. 
 
-   ![CI Build Pipeline](media/46.png)
+   ![CI Build Pipeline](media/46_1.png)
    
 2. Select the pipeline run and monitor the pipeline steps. The pipeline will run for 10-12 minutes. Proceed to the next task when the build pipeline successfully completes.
     
@@ -428,7 +450,7 @@ TBD
     
    ![Release pipeline](media/48.png)
    
-2. The release pipeline will run for 5-6 minutes. Proceed to the next task when the release pipeline successfully completes.
+2. The release pipeline will run for about 15 minutes. Proceed to the next task when the release pipeline successfully completes.
 
 ### Task 4: Review Release Pipeline Outputs
 
@@ -436,11 +458,11 @@ TBD
 
     ![Release pipeline logs](media/50.png)
     
-2. Observe the **Scoring URI** and test results for the deployed webservice.
+2. Observe the **Scoring URI** and **API Key** for the deployed webservice. Please note down both the `Scoring URI` and `API Key` for *Exercise 7*.
 
     ![Scoring URI of the deployed webservice](media/51.png)
 
-3. Log in to Azure Portal. Open your **Resource Group, Workspace, Deployments** section, and observe the deployed webservice: **cost-estimator-service**.
+3. Log in to Azure Portal. Open your **Resource Group, Workspace, Deployments** section, and observe the deployed webservice: **compliance-classifier-service**.
 
     ![Deployed webservice in Azure Portal](media/52.png)
 
@@ -451,42 +473,43 @@ Duration: 15 minutes
 
 In this exercise, you verify that the first release of the application works.
 
-### Task 1: Task name
+### Task 1: Test the Deployment
 
-1.  Number and insert your custom workshop content here . . .
+1. Browse to your Azure Notebooks project and navigate to `Test Deployment.ipynb`. This is the notebook you will step thru executing in this lab.
+2. Follow the instructions within the notebook to complete the lab.
+3. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
+ 
 
-    a.  Insert content here
-
-        i.  
-
-
-## Exercise 8: Updating the deployed solution
-
-Duration: 15 minutes
-
-In this exercise you make a change to the model training code which results in a new release of the web service in production. 
-
-### Task 1: Task name
-
-1.  Number and insert your custom workshop content here . . .
-
-    a.  Insert content here
-
-        i.  
-
-## Exercise 9: Examining deployed model performance
+## Exercise 8: Examining deployed model performance
 
 Duration: 15 minutes
 
 In this exercise you learn how to monitor the performance of a deployed model.
 
-### Task 1: Task name
+### Task 1: Activate App Insights and data collection on the deployed model
 
-1.  Number and insert your custom workshop content here . . .
+1. Browse to your Azure Notebooks project and navigate to the [Model Telemetry](notebooks/Model%20Telemetry.ipynb) notebook. This is the notebook you will step thru executing in this task.
+2. Follow the instructions within the notebook to complete the task. When finished, your deployed model has now both [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) integration and data collection activated.
 
-    a.  Insert content here
+### Task 2: Check Application Insights telemetry
 
-        i.  
+1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+2. Locate the Application Insights instance in the resource group and click on it.
+3. Go to **Overview**
+4. From the top row of the right section select **Logs (Analytics)**. This will open the Application Insights query editor with an empty new query.
+5. In the left pane, make sure the **Schema** tab is selected. 
+6. Hover over **requests** and click the icon on the right side - "Show sample records from this table". 
+7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute, call again your model, and click **Run** to re-execute the Application Insights query.
+
+### Task 3: Check the data collected
+
+1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
+2. Locate the Storage Account instance in the resource group and click on it.
+3. Go to **Storage Explorer (preview)**.
+4. Expand the **BLOB CONTAINERS** section and identify the **modeldata** container
+5. Identify the CSV files containing the collected data. The path to the output blobs is based on the following structure:
+
+'/modeldata/\<subscriptionid>/\<resourcegroup>/\<workspace>/\<webservice>/\<model>/\<version>/\<identifier>/\<year>/\<month>/\<day>/data.csv'
 
 
 ## After the hands-on lab 
