@@ -109,6 +109,7 @@ In this exercise, you create a model for classifying component text as compliant
 
 1. Browse to your Azure Notebooks project and navigate to `Deep Learning with Text.ipynb`. This is the notebook you will step thru executing in this lab.
 2. Follow the instructions within the notebook to complete the lab.
+3. In Azure Notebooks navigate to the `models` folder and download the **model.h5** file to your local disk. We will use the downloaded model file in the next exercise. *Note that if the downloaded file name is changed to `utf-8''model.h5`, then rename the file back to `model.h5`*
 
 
 ## Exercise 2: Registering the model
@@ -117,13 +118,34 @@ Duration: 15 minutes
 
 In this exercise, you explore the approaches you can take to managing the model versions, their association with Experiment Runs, and how you can retrieve the models both programmatically and via the Azure Portal.
 
-### Task 1: TBD
+### Task 1: Register Model using Azure Machine Learning Python SDK
 
-1.  Number and insert your custom workshop content here . . . 
+1. Browse to your Azure Notebooks project and navigate to `Register Model.ipynb`. This is the notebook you will step thru executing in this lab.
+2. Follow the instructions within the notebook to complete the lab.
+3. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section, and observe the **version 1** of the registered model: `compliance-classifier`.
 
-    a.  Insert content here
+    ![Review registered model in Azure Portal](media/60.png)
+    
+### Task 2: Register Model from Azure Portal
 
-        i.  
+1. Log in to [Azure Portal](https://portal.azure.com). Open your **Resource Group, Workspace, Models** section and select **Add Model**
+
+  ![Add Model in Azure Portal](media/61.png)
+  
+2. Provide the following input to the `Register a Model page`, and then select **Create**
+
+   a. Name: `compliance-classifier`
+   
+   b. Description: `Deep learning model to classify the descriptions of car components as compliant or non-compliant.`
+   
+   c. Select the `model.h5` file from your local disk.
+
+   ![Register a Model in Azure Portal](media/62.png)
+   
+3. Navigate to your **Resource Group, Workspace, Models** section, and observe the **version 2** of the registered model: `compliance-classifier`.
+
+  ![Registered version 2 Model in Azure Portal](media/63.png)
+
 
 ## Exercise 3: Setup New Project in Azure DevOps
 
