@@ -65,10 +65,10 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 4: Review Release Pipeline Outputs](#Task-4-Review-Release-Pipeline-Outputs)
   - [Exercise 7: Testing the deployed solution](#Exercise-7-Testing-the-deployed-solution)
     - [Task 1: Task name](#Task-1-Task-name)
-  - [Exercise 8: Updating the deployed solution](#Exercise-8-Updating-the-deployed-solution)
-    - [Task 1: Task name](#Task-1-Task-name-1)
-  - [Exercise 9: Examining deployed model performance](#Exercise-9-Examining-deployed-model-performance)
-    - [Task 1: Task name](#Task-1-Task-name-2)
+  - [Exercise 8: Examining deployed model performance](#Exercise-9-Examining-deployed-model-performance)
+    - [Task 1: Activate App Insights and data collection on the deployed model](#Task-1-Activate-App-Insights-and-Data-Collection)
+    - [Task 2: Check Application Insights telemetry](#Task-2-Check-Application-Insights-Telemetry)
+    - [Task 3: Check the data collected](#Task-3-Check-the-data-collected)
   - [After the hands-on lab](#After-the-hands-on-lab)
     - [Task 1: Clean up lab resources](#Task-1-Clean-up-lab-resources)
 
@@ -478,23 +478,9 @@ In this exercise, you verify that the first release of the application works.
 1. Browse to your Azure Notebooks project and navigate to `Test Deployment.ipynb`. This is the notebook you will step thru executing in this lab.
 2. Follow the instructions within the notebook to complete the lab.
 3. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
+ 
 
-
-## Exercise 8: Updating the deployed solution
-
-Duration: 15 minutes
-
-In this exercise you make a change to the model training code which results in a new release of the web service in production. 
-
-### Task 1: Task name
-
-1.  Number and insert your custom workshop content here . . .
-
-    a.  Insert content here
-
-        i.  
-
-## Exercise 9: Examining deployed model performance
+## Exercise 8: Examining deployed model performance
 
 Duration: 15 minutes
 
@@ -520,7 +506,7 @@ In this exercise you learn how to monitor the performance of a deployed model.
 1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
 2. Locate the Storage Account instance in the resource group and click on it.
 3. Go to **Storage Explorer (preview)**.
-4. Expand the **BLOB CONTAINERS** section.
+4. Expand the **BLOB CONTAINERS** section and identify the **modeldata** container
 5. Identify the CSV files containing the collected data. The path to the output blobs is based on the following structure:
 
 '/modeldata/\<subscriptionid>/\<resourcegroup>/\<workspace>/\<webservice>/\<model>/\<version>/\<identifier>/\<year>/\<month>/\<day>/data.csv'
