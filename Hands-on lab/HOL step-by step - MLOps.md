@@ -473,13 +473,11 @@ Duration: 15 minutes
 
 In this exercise, you verify that the first release of the application works.
 
-### Task 1: Task name
+### Task 1: Test the Deployment
 
-1.  Number and insert your custom workshop content here . . .
-
-    a.  Insert content here
-
-        i.  
+1. Browse to your Azure Notebooks project and navigate to `Test Deployment.ipynb`. This is the notebook you will step thru executing in this lab.
+2. Follow the instructions within the notebook to complete the lab.
+3. Note that you will have to provide values for **Scoring URI** and **API Key** for the deployed webservice in the notebook.
 
 
 ## Exercise 8: Updating the deployed solution
