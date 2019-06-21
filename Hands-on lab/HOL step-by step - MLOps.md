@@ -217,6 +217,10 @@ Duration: 20 minutes
    a. Connection name: `quick-starts-sc`
    
    b. Subscription: Select the Azure subscription to use
+
+   **Note**
+
+   It might take up to 30 seconds for the **Subscription** dropdown to be populated with available subscriptions, depending on the number of different subscriptions your account has access to.
    
    c. Resource Group: This value should match the value you provided in the `azure-pipelines.yml` file
    
