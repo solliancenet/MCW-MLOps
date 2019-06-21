@@ -329,6 +329,12 @@ Duration: 20 minutes
     b. Name: `description` Value: `"Compliance Classifier Web Service"` *note the double quotes around description value*
     
     c. Name: `service_name` Value: `compliance-classifier-service`
+
+    d. Name: `aks_region` Value: `eastus`
+
+    **Note**
+
+    The name of the Azure region should be the same one that was used to create Azure Machine Learning workspace earlier on.
     
       ![Add Pipeline variables](media/26.png)
       
