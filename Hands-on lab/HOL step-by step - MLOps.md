@@ -542,17 +542,17 @@ To avoid unexpected charges, it is recommended that you clean up all of your lab
 
 2.  Select **Delete resource group** from the command bar.
 
-    ![Screenshot of the Delete resource group button.](images/image71.png 'Delete resource group button')
+    ![Screenshot of the Delete resource group button.](media/image71.png)
 
 3.  In the confirmation dialog that appears, enter the name of the resource group and select **Delete**.
 
 4.  Wait for the confirmation that the Resource Group has been successfully deleted. If you don't wait, and the delete fails for some reason, you may be left with resources running that were not expected. You can monitor using the Notifications dialog, which is accessible from the Alarm icon.
 
-    ![The Notifications dialog box has a message stating that the resource group is being deleted.](images/image72.png 'Notifications dialog box')
+    ![The Notifications dialog box has a message stating that the resource group is being deleted.](media/image72.png)
 
 5.  When the Notification indicates success, the cleanup is complete.
 
-    ![The Notifications dialog box has a message stating that the resource group has been deleted.](images/image73.png 'Notifications dialog box')
+    ![The Notifications dialog box has a message stating that the resource group has been deleted.](media/image73.png)
 
 You should follow all steps provided _after_ attending the Hands-on lab.
 
