@@ -27,41 +27,68 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- TOC -->
 
-- [\[insert workshop name here\] before the hands-on lab setup guide](#insert-workshop-name-here-before-the-hands-on-lab-setup-guide)
+- [MLOps before the hands-on lab setup guide](#insert-workshop-name-here-before-the-hands-on-lab-setup-guide)
   - [Requirements](#Requirements)
   - [Before the hands-on lab](#Before-the-hands-on-lab)
-    - [Task 1: Task name](#Task-1-Task-name)
-    - [Task 2: Task name](#Task-2-Task-name)
+    - [Task 1: Setup an Azure Notebooks account](#Task-1-Setup-an-Azure-Notebooks-account)
+    - [Task 2: Setup an Azure Notebooks project](#Task-2-Setup-an-Azure-Notebooks-project)
+    - [Task 3: Start the Notebook server](#Task-2-Start-the-Notebook-server)
 
 <!-- /TOC -->
 
-# \[insert workshop name here\] before the hands-on lab setup guide 
+# MLOps before the hands-on lab setup guide 
 
 ## Requirements
 
-1.  Number and insert your custom workshop content here . . . 
+1.  Azure subscription. You will need a valid and active Azure account to complete the quickstarts. If you do not have one, you can sign up for a [free trial](https://azure.microsoft.com/en-us/free/).
+
+2. Azure DevOps subscription. You will need a valid and active Azure DevOps account to complete the quickstarts. If you do not have one, you can sign up for a [free account](https://azure.microsoft.com/en-us/services/devops/).
+
+3. Azure Notebooks. You will need an Azure Notebooks project to import the quickstart notebooks into. See instructions below on how to prepare your Azure Notebooks environment.
+
 
 ## Before the hands-on lab
 
-Duration: X minutes
+Duration: 5 minutes
 
-\[insert your custom workshop content here . . . 
+At a high level, here are the setup tasks you will need to perform to prepare your Azure Notebooks Environment (the detailed instructions follow):
 
-### Task 1: Task name
+1. Setup an Azure Notebooks account.
 
-1.  Number and insert your custom workshop content here . . . 
+2. Setup Azure Notebooks Project
 
-    a.  Insert content here
+3. Start the Notebook Server
 
-        i.  
 
-### Task 2: Task name
+### Task 1: Setup an Azure Notebooks account
 
-1.  Number and insert your custom workshop content here . . . 
+1. In your browser, navigate to [https://notebooks.azure.com](https://notebooks.azure.com).
 
-    a.  Insert content here
+2. Select Sign In from the top, right corner and sign in using your Microsoft Account credentials. After a successful login, you will have implicitly created the account and are ready to continue.
 
-        i.  
+### Task 2: Setup an Azure Notebooks project
+
+1. Log in to Azure Notebooks.
+
+2. Navigate to **My Projects** page
+
+3. Select **Upload GitHub Repo**.
+
+4. In the Upload GitHub Repository dialog, for the GitHub repository provide ```solliancenet/mcw-mlops```, and select **Import**. Allow the import a few moments to complete, the dialog will dismiss once the import has completed.
+
+   ![Import GitHub Repository](media/prepare-01.png)
+
+5. Once the import is complete, a new project named ```mcw-mlops``` is available in your account. All the notebooks mentioned in the hands-on lab are available in the following location: ```\Hands-on Lab\notebooks```.
+
+### Task 3: Start the Notebook server
+
+1. Navigate to your project: ```mcw-mlops```
+
+2. Start your Notebook server on **Free Compute** by selecting the **Play** icon in the toolbar as shown:
+
+   ![Start Notebook Server on Free Compute](media/prepare-02.png)
+
+3. It should open the **Jupyter Notebooks** interface.
 
 You should follow all steps provided *before* performing the Hands-on lab.
 
