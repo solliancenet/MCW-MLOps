@@ -116,7 +116,7 @@ To author: remove this section if you do not require environment setup instructi
 
 ## Exercise 1: Creating and evaluating compliance classification models
 
-Duration: 60 minutes
+Duration: 40 minutes
 
 In this exercise, you create a model for classifying component text as compliant or non-compliant.
 
@@ -229,7 +229,7 @@ Duration: 20 minutes
 
 ## Exercise 4: Setup and Run the Build Pipeline
 
-Duration: 20 minutes
+Duration: 25 minutes
 
 ### Task 1: Setup Build Pipeline
 
@@ -437,7 +437,7 @@ Duration: 20 minutes
     
 ## Exercise 6: Test Build and Release Pipelines
 
-Duration: 20 minutes
+Duration: 30 minutes
 
 ### Task 1: Make Edits to Source Code
 
