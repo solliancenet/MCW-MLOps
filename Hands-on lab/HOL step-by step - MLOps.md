@@ -398,7 +398,7 @@ Duration: 20 minutes
     
     c. Script Location: `Inline script`
     
-    d. Inline Script: `python aml_service/deploy.py --service_name $(service_name) --aks_name $(aks_name) --description $(description)`
+    d. Inline Script: `python aml_service/deploy.py --service_name $(service_name) --aks_name $(aks_name) --aks_region $(aks_region) --description $(description)`
     
       ![Setup Azure CLI task](media/38.png)
 
