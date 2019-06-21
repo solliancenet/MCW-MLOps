@@ -544,7 +544,7 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 5. Identify the CSV files containing the collected data. The path to the output blobs is based on the following structure:
 
-```/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv```
+    `modeldata -> subscriptionid -> resourcegroup -> workspace -> webservice -> model -> version -> identifier -> year -> month -> day -> data.csv`
 
     ![Locate telemetry data in blob container](media/telemetry-07.png)
 
