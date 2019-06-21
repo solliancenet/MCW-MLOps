@@ -534,11 +534,19 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
 2. Locate the Storage Account instance in the resource group and click on it.
+
+    ![Locate telemetry storage account](media/telemetry-05.png)
+
 3. Go to **Storage Explorer (preview)**.
 4. Expand the **BLOB CONTAINERS** section and identify the **modeldata** container
+
+    ![Locate telemetry blob container in storage account](media/telemetry-06.png) 
+
 5. Identify the CSV files containing the collected data. The path to the output blobs is based on the following structure:
 
-'/modeldata/\<subscriptionid>/\<resourcegroup>/\<workspace>/\<webservice>/\<model>/\<version>/\<identifier>/\<year>/\<month>/\<day>/data.csv'
+```/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv```
+
+    ![Locate telemetry data in blob container](media/telemetry-07.png)
 
 
 ## After the hands-on lab 
