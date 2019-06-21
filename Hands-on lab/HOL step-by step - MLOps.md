@@ -19,7 +19,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2018 Microsoft Corporation. All rights reserved.
+© 2019 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -36,7 +36,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 1: Creating and evaluating compliance classification models](#Exercise-1-Creating-and-evaluating-compliance-classification-models)
     - [Task 1: Create the classification model using a notebook](#Task-1-Create-the-classification-model-using-a-notebook)
   - [Exercise 2: Registering the model](#Exercise-2-Registering-the-model)
-    - [Task 1: TBD](#Task-1-TBD)
+    - [Task 1: Register Model using Azure Machine Learning Python SDK](#Task-1-Register-Model-using-Azure-Machine-Learning-Python-SDK)
+    - [Task 2: Register Model from Azure Portal](#Task-2-Register-Model-from-Azure-Portal)
   - [Exercise 3: Setup New Project in Azure DevOps](#Exercise-3-Setup-New-Project-in-Azure-DevOps)
     - [Task 1: Create New Project](#Task-1-Create-New-Project)
     - [Task 2: Import Quickstart code from a Github Repo](#Task-2-Import-Quickstart-code-from-a-Github-Repo)
@@ -64,10 +65,10 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 3: Monitor Release Pipeline](#Task-3-Monitor-Release-Pipeline)
     - [Task 4: Review Release Pipeline Outputs](#Task-4-Review-Release-Pipeline-Outputs)
   - [Exercise 7: Testing the deployed solution](#Exercise-7-Testing-the-deployed-solution)
-    - [Task 1: Test the Deployment](#Task-1-Test-the-deployment)
+    - [Task 1: Test the Deployment](#Task-1-Test-the-Deployment)
   - [Exercise 8: Examining deployed model performance](#Exercise-8-Examining-deployed-model-performance)
-    - [Task 1: Activate App Insights and data collection on the deployed model](#Task-1-Activate-App-Insights-and-Data-Collection-on-the-deployed-model)
-    - [Task 2: Check Application Insights telemetry](#Task-2-Check-Application-Insights-Telemetry)
+    - [Task 1: Activate App Insights and data collection on the deployed model](#Task-1-Activate-App-Insights-and-data-collection-on-the-deployed-model)
+    - [Task 2: Check Application Insights telemetry](#Task-2-Check-Application-Insights-telemetry)
     - [Task 3: Check the data collected](#Task-3-Check-the-data-collected)
   - [After the hands-on lab](#After-the-hands-on-lab)
     - [Task 1: Clean up lab resources](#Task-1-Clean-up-lab-resources)
@@ -78,19 +79,33 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives 
 
-\[Insert what is trying to be solved for by using this workshop. . . \]
+In this hands-on lab, you will learn how Trey Research can leverage Deep Learning technologies to scan through their vehicle specification documents to find compliance issues with new regulations. You will standardize the model format to ONNX and observe how this simplifies inference runtime code, enabling pluggability of different models and targeting a broad range of runtime environments and most importantly improves inferencing speed over the native model. You will build a DevOps pipeline the coordinate retrieving the latest best model from the model registry, packaging the web application, deploying the web application and inferencing web service. After a first successful deployment, you will make updates to both the model and the and web application and execute the pipeline once for to achieve an updated deployment. You will also learn how to monitor the model's performance after it is deployed so Trey Research can be proactive with performance issues.
+
+At the end of this hands-on lab, you will be better able to you will be better able to implement end-to-end solutions that fully operationalize deep learning models, inclusive of all application components that depend on the model.
 
 ## Overview
 
-\[insert your custom workshop content here . . . \]
+Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. Trey Research has decades specializing in data science and application development that until now were separate units. They have seen the value created by the ad-hoc synergies between data science and app development, but they would like to unlock the greater, long term value as they formalize their approach by combining the two units into one, and follow one standardized process for operationalizing their innovations.
+
+As their first effort of this combined initiative, they would to define a process for operationalizing deep learning that encompasses all phases of the application life cycle along with model creation and deployment of a deep learning model. For this first proof of concept, they would like to focus on component compliance. Specifically they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Even though this first scenario is focused on vehicle components, they believe this approach will generalize to any scenario involving an inventory of components (which all of their manufacturing customers deal with). The component descriptions (which are free form text) are entered and managed via a web application. This web application take new component descriptions entered by authorized technicians and labels the component as compliant or non-compliant based on the text. 
+
+They want to ensure the overall process they create enables them to update both the underlying model and the web app in one, unified pipeline. They also want to be able to monitor the model's performance after it is deployed so they can be proactive with performance issues.
 
 ## Solution architecture
 
-\[Insert your end-solution architecture here. . .\]
+![The lab solution architecture as described by the text that follows.](images/preferred-solution-overview.png)
+
+The overall approach used in this lab is to orchestrate continuous integration and continuous delivery Azure Pipelines from Azure DevOps. These pipelines are triggered by changes to artifacts that describe a machine learning pipeline, that is created with the Azure Machine Learning SDK. In the lab, you make a change to the model training script that executes the Azure Pipelines Build Pipeline, which trains the model and creates the container image. Then this triggers an Azure Pipelines Release pipeline that deploys the model as a web service to AKS, by using the Docker image that was created in the Build pipeline. Once in production, the scoring web service is monitored using a combination of Application Insights and Azure Storage.
 
 ## Requirements
 
-1.  Number and insert your custom workshop content here . . . 
+1.  Microsoft Azure subscription must be pay-as-you-go or MSDN
+
+    a. Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
+
+    b. Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
+
+2. An Azure DevOps account.
 
 ## Before the hands-on lab
 
@@ -149,9 +164,7 @@ In this exercise, you explore the approaches you can take to managing the model 
 
 ## Exercise 3: Setup New Project in Azure DevOps
 
-Duration: X minutes
-
-TBD
+Duration: 20 minutes
 
 ### Task 1: Create New Project
 
@@ -212,9 +225,8 @@ TBD
 
 ## Exercise 4: Setup and Run the Build Pipeline
 
-Duration: X minutes
+Duration: 20 minutes
 
-TBD
 ### Task 1: Setup Build Pipeline
 
 1. From left navigation select **Pipelines, Builds** and then select **New pipeline**
@@ -270,9 +282,7 @@ TBD
     
 ## Exercise 5: Setup the Release Pipeline
 
-Duration: X minutes
-
-TBD
+Duration: 20 minutes
 
 ### Task 1: Create an Empty Job
 
@@ -417,9 +427,7 @@ TBD
     
 ## Exercise 6: Test Build and Release Pipelines
 
-Duration: X minutes
-
-TBD
+Duration: 20 minutes
 
 ### Task 1: Make Edits to Source Code
 
