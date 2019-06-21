@@ -513,11 +513,22 @@ In this exercise you learn how to monitor the performance of a deployed model.
 
 1. Navigate to the Azure Portal and locate the resource group you created for this lab (the one where the Azure Machine Learning service workspace was created in).
 2. Locate the Application Insights instance in the resource group and click on it.
+
+    ![Application Insights instance in resource group](media/telemetry-01.png)
+
 3. Go to **Overview**
 4. From the top row of the right section select **Logs (Analytics)**. This will open the Application Insights query editor with an empty new query.
+
+    ![Application Insights Logs - Analytics](media/telemetry-02.png)
+
 5. In the left pane, make sure the **Schema** tab is selected. 
 6. Hover over **requests** and click the icon on the right side - "Show sample records from this table". 
+
+    ![Application Insights create requests query](media/telemetry-03.png)
+
 7. Look at the results displayed. Application Insights is tracing all requests made to your model. Sometimes, a couple of minutes are needed for the telemetry information to propagate. If there are no results displayed, wait a minute, call again your model, and click **Run** to re-execute the Application Insights query.
+
+    ![Application Insights requests query results](media/telemetry-04.png)
 
 ### Task 3: Check the data collected
 
