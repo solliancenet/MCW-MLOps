@@ -54,6 +54,10 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 3. Azure Notebooks. You will need an Azure Notebooks project to import the quickstart notebooks into. See instructions below on how to prepare your Azure Notebooks environment.
 
+4. Azure Machine Learning service workspace. The workspace is created during Exercise 1 from the hands-on lab.
+
+    **Note**: Make sure you execute successfully all steps related to the Azure Machine Learning service workspace setup in Exercise 1. A correctly set up workspace is needed by all the other exercises.
+
 
 ## Before the hands-on lab
 
