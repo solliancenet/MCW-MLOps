@@ -93,7 +93,7 @@ They want to ensure the overall process they create enables them to update both 
 
 ## Solution architecture
 
-![The lab solution architecture as described by the text that follows.](images/preferred-solution-overview.png)
+![The lab solution architecture as described by the text that follows.](media/architecture-overview.png)
 
 The overall approach used in this lab is to orchestrate continuous integration and continuous delivery Azure Pipelines from Azure DevOps. These pipelines are triggered by changes to artifacts that describe a machine learning pipeline, that is created with the Azure Machine Learning SDK. In the lab, you make a change to the model training script that executes the Azure Pipelines Build Pipeline, which trains the model and creates the container image. Then this triggers an Azure Pipelines Release pipeline that deploys the model as a web service to AKS, by using the Docker image that was created in the Build pipeline. Once in production, the scoring web service is monitored using a combination of Application Insights and Azure Storage.
 
